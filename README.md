@@ -362,6 +362,7 @@ Positive matches:
 And it shows us all negative matches
 
 ```bash
+
 Negative matches:
 -----------------
 
@@ -625,8 +626,7 @@ Negative matches:
 
    XADataSourceAutoConfiguration did not match
       - required @ConditionalOnClass classes not found: javax.transaction.TransactionManager,org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType (OnClassCondition)
-      
-```bash
+```     
 
 
 
