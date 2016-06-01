@@ -1,9 +1,12 @@
 package com.hello.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.social.twitter.api.SearchResults;
+import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,8 +23,9 @@ public class HelloController {
 	@RequestMapping("/search-tweet")
 	public String search(@RequestParam(name = "searchFor") String query, Model model) {
 		SearchResults search = twitter.searchOperations().search(query);
-		String textOnTweet = search.getTweets().get(0).getText();
-		model.addAttribute("textOnTweet", textOnTweet);
+		List<Tweet> tweets = search.getTweets();
+		model.addAttribute("tweets", tweets);
+		
 		return "resultPage";
 	}
 
