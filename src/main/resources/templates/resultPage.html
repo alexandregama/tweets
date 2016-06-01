@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Hello Thymeleaf</title>
+</head>
+<body>
+	<ul>
+		<li th:each="tweet: ${tweets}" th:text="${tweet.text}">Some Tweet</li>
+	</ul>
+</body>
+</html>
