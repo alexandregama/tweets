@@ -15,16 +15,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
 
+	private static final String RESULT_TWEET_PAGE = "resultPage";
+	
 	@Autowired
 	private TwitterClientApi twitterClient;
 	
 	@RequestMapping("/search-tweet")
-	public String search(@RequestParam(name = "searchFor") String query, Model model) {
-		List<Tweet> tweets = twitterClient.searchFor(query);
+	public String searchCompleteTweets(@RequestParam(name = "forQuery") String query, Model model) {
+		List<Tweet> tweets = twitterClient.searchTweetsFor(query);
 		
 		model.addAttribute("tweets", tweets);
 		
-		return "resultPage";
+		return RESULT_TWEET_PAGE;
+	}
+	
+	@RequestMapping("/search-tweet-messages")
+	public String searchJustTweetsMessages(@RequestParam(name = "forQuery") String query, Model model) {
+		List<String> messages = twitterClient.searchMessagesFor(query);
+		
+		model.addAttribute("messages", messages);
+		
+		return RESULT_TWEET_PAGE;
 	}
 
 	public static void main(String[] args) {
