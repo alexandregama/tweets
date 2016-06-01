@@ -2,5 +2,6 @@
 .gradle
 .project
 .settings
+src/main/resources/application.properties
 /bin/
 build/

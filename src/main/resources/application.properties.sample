@@ -1,0 +1,6 @@
+debug=false
+
+spring.thymeleaf.cache=false
+
+spring.social.twitter.appId =
+spring.social.twitter.appSecret = 
