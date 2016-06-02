@@ -3,17 +3,14 @@ package com.tweets.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@SpringBootApplication
 @Controller
-public class HelloController {
+public class TweetController {
 
 	private static final String RESULT_TWEET_PAGE = "resultPage";
 	
@@ -25,6 +22,7 @@ public class HelloController {
 		List<Tweet> tweets = twitterClient.searchTweetsFor(query);
 		
 		model.addAttribute("tweets", tweets);
+		model.addAttribute("searchedQuery", query);
 		
 		return RESULT_TWEET_PAGE;
 	}
@@ -36,10 +34,6 @@ public class HelloController {
 		model.addAttribute("messages", messages);
 		
 		return RESULT_TWEET_PAGE;
-	}
-
-	public static void main(String[] args) {
-		SpringApplication.run(HelloController.class, args);
 	}
 
 }
