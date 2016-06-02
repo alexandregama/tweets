@@ -18,6 +18,10 @@ public class SearchController {
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String search(HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		String searchTerm = request.getParameter("forQuery");
+		if (searchTerm != null && searchTerm.contains("struts")) {
+			redirectAttributes.addFlashAttribute("error", "Try to use Spring instead of struts");
+			return "redirect:/";
+		}
 		redirectAttributes.addAttribute("forQuery", searchTerm);
 		
 		return "redirect:search-tweet";
