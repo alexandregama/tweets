@@ -1,4 +1,4 @@
-package com.tweets.application;
+package com.twitter.api;
 
 import static java.util.stream.Collectors.toList;
 

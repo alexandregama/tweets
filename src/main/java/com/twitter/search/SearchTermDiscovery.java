@@ -1,4 +1,4 @@
-package com.tweets.application;
+package com.twitter.search;
 
 import javax.servlet.http.HttpServletRequest;
 
