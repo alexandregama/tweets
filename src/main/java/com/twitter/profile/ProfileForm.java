@@ -20,6 +20,7 @@ public class ProfileForm {
 	private String email;
 
 	@NotNull
+	@PastLocalDate
 	private LocalDate birthDate;
 
 	@NotEmpty
