@@ -1,8 +1,13 @@
 package com.twitter.profile;
 
+import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.twitter.formatter.PersonalLocalDateFormatter;
 
 @Controller
 public class ProfileController {
@@ -17,5 +22,10 @@ public class ProfileController {
 		System.out.println(profileForm);
 		
 		return "redirect:/profile";
+	}
+
+	@ModelAttribute(value = "dateFormat")
+	public String localeFormat(Locale locale) {
+		return PersonalLocalDateFormatter.patternFrom(locale);
 	}
 }
